@@ -1,0 +1,666 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   108 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c3_motor"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "is_c3_motor"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "is_Ready"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready"\
+    }\
+    ChartData {\
+      Name         "is_Current_check"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.Current_check"\
+    }\
+    ChartData {\
+      Name         "is_active_Current_check"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.Current_check"\
+    }\
+    ChartData {\
+      Name         "is_M_Run"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run"\
+    }\
+    ChartData {\
+      Name         "is_active_M_Run"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run"\
+    }\
+    ChartData {\
+      Name         "is_Initialize"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Initialize"\
+    }\
+    ChartData {\
+      Name         "is_Normal_Mode"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode"\
+    }\
+    ChartData {\
+      Name         "is_Dspace_Test"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Dspace_Test"\
+    }\
+    ChartData {\
+      Name         "is_active_RUN"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN"\
+    }\
+    ChartData {\
+      Name         "is_Test_Mode"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode"\
+    }\
+    ChartData {\
+      Name         "is_Showing_Mode"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode"\
+    }\
+    ChartData {\
+      Name         "is_active_Temp_check"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.Temp_check"\
+    }\
+    ChartData {\
+      Name         "is_ZHI_S_D"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.ZHI_S_D"\
+    }\
+    ChartData {\
+      Name         "is_active_ZHI_S_D"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.ZHI_S_D"\
+    }\
+    ChartData {\
+      Name         "is_hy"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Initialize.hy"\
+    }\
+    ChartData {\
+      Name         "is_xhhy"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Initialize.xhhy"\
+    }\
+    ChartData {\
+      Name         "is_xhzy"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Initialize.xhzy"\
+    }\
+    ChartData {\
+      Name         "is_Close"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Close"\
+    }\
+    ChartData {\
+      Name         "is_Algorithm"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Close.Algorithm"\
+    }\
+    ChartData {\
+      Name         "is_HYDG_Close"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Close.Algorithm.HYDG_Close"\
+    }\
+    ChartData {\
+      Name         "is_XHHY_Close"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Close.Algorithm.XHHY_Close"\
+    }\
+    ChartData {\
+      Name         "is_XHZY_Close"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Close.Algorithm.XHZY_Close"\
+    }\
+    ChartData {\
+      Name         "is_XHHY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Algorithm.XHHY"\
+    }\
+    ChartData {\
+      Name         "is_GXDY_SJ_BJ"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.GXDY_SJ_BJ"\
+    }\
+    ChartData {\
+      Name         "is_active_GXDY_SJ_BJ"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.GXDY_SJ_BJ"\
+    }\
+    ChartData {\
+      Name         "is_GXDY_COM_GZ"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.GXDY_COM_GZ"\
+    }\
+    ChartData {\
+      Name         "is_active_GXDY_COM_GZ"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.GXDY_COM_GZ"\
+    }\
+    ChartData {\
+      Name         "is_Algorithm"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Algorithm"\
+    }\
+    ChartData {\
+      Name         "is_active_Algorithm"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Algorithm"\
+    }\
+    ChartData {\
+      Name         "is_HY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Algorithm.HY"\
+    }\
+    ChartData {\
+      Name         "is_XHZY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Algorithm.XHZY"\
+    }\
+    ChartData {\
+      Name         "is_Limit_Check"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Limit_Check"\
+    }\
+    ChartData {\
+      Name         "is_active_Limit_Check"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Limit_Check"\
+    }\
+    ChartData {\
+      Name         "is_Limit_Check"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Limit_Check"\
+    }\
+    ChartData {\
+      Name         "is_active_Limit_Check"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Limit_Check"\
+    }\
+    ChartData {\
+      Name         "is_Algorithm"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm"\
+    }\
+    ChartData {\
+      Name         "is_active_Algorithm"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm"\
+    }\
+    ChartData {\
+      Name         "is_XHHY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.XHHY"\
+    }\
+    ChartData {\
+      Name         "is_HY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.HY"\
+    }\
+    ChartData {\
+      Name         "is_XHZY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.XHZY"\
+    }\
+    ChartData {\
+      Name         "is_Limit_Up_Test"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Limit_Up_Test"\
+    }\
+    ChartData {\
+      Name         "is_Limit_Down_Test"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Limit_Down_Test"\
+    }\
+    ChartData {\
+      Name         "is_XHHY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Limit_Up_Test.XHHY"\
+    }\
+    ChartData {\
+      Name         "is_XHZY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Limit_Up_Test.XHZY"\
+    }\
+    ChartData {\
+      Name         "is_HY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Limit_Up_Test.HY"\
+    }\
+    ChartData {\
+      Name         "is_HY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Limit_Down_Test.HY"\
+    }\
+    ChartData {\
+      Name         "is_XHZY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Limit_Down_Test.XHZY"\
+    }\
+    ChartData {\
+      Name         "is_XHHY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Limit_Down_Test.XHHY"\
+    }\
+    ChartData {\
+      Name         "is_Elevation_Test"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Test_Mode.Elevation_Test"\
+    }\
+    ChartData {\
+      Name         "is_Limit_Down_Test"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.Limit_Down_Test"\
+    }\
+    ChartData {\
+      Name         "is_XHZY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.Limit_Down_Test.XHZY"\
+    }\
+    ChartData {\
+      Name         "is_HY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.Limit_Down_Test.HY"\
+    }\
+    ChartData {\
+      Name         "is_XHHY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.Limit_Down_Test.XHHY"\
+    }\
+    ChartData {\
+      Name         "is_Limit_Up_Test"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.Limit_Up_Test"\
+    }\
+    ChartData {\
+      Name         "is_XHZY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.Limit_Up_Test.XHZY"\
+    }\
+    ChartData {\
+      Name         "is_HY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.Limit_Up_Test.HY"\
+    }\
+    ChartData {\
+      Name         "is_XHHY"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Showing_Mode.RUN.Algorithm.Limit_Up_Test.XHHY"\
+    }\
+    ChartData {\
+      Name         "is_active_Enc_GZ"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.Enc_GZ"\
+    }\
+    ChartData {\
+      Name         "is_Enc2"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.Enc_GZ.Enc2"\
+    }\
+    ChartData {\
+      Name         "is_active_Enc2"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.Enc_GZ.Enc2"\
+    }\
+    ChartData {\
+      Name         "is_active_Fault_Exit"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.Fault_Exit"\
+    }\
+    ChartData {\
+      Name         "is_Enc1"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.Enc_GZ.Enc1"\
+    }\
+    ChartData {\
+      Name         "is_active_Enc1"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.Enc_GZ.Enc1"\
+    }\
+    ChartData {\
+      Name         "is_Limit_Fault_Exit"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.Fault_Exit.Limit_Fault_Exit"\
+    }\
+    ChartData {\
+      Name         "is_active_Limit_Fault_Exit"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.Fault_Exit.Limit_Fault_Exit"\
+    }\
+    ChartData {\
+      Name         "is_Motor_check"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.Motor_check"\
+    }\
+    ChartData {\
+      Name         "is_active_Motor_check"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.Motor_check"\
+    }\
+    ChartData {\
+      Name         "is_Error_Check"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Error_Check"\
+    }\
+    ChartData {\
+      Name         "is_active_Error_Check"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Error_Check"\
+    }\
+    ChartData {\
+      Name         "is_Error_Check"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ready_Run.M_Run.Normal_Mode.p1.RUN.Error_Check.Error_Check"\
+    }\
+    ChartData {\
+      Name         "Cur_Limit"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Cur_Limit"\
+    }\
+    ChartData {\
+      Name         "Temp_Up_Limit"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Temp_Up_Limit"\
+    }\
+    ChartData {\
+      Name         "PWM_Value_Mid"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "PWM_Value_Mid"\
+    }\
+    ChartData {\
+      Name         "Encode_Sp_Min"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Encode_Sp_Min"\
+    }\
+    ChartData {\
+      Name         "Encode_Pos1"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Encode_Pos1"\
+    }\
+    ChartData {\
+      Name         "Encode_Pos2"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Encode_Pos2"\
+    }\
+    ChartData {\
+      Name         "Encode_Pos3"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Encode_Pos3"\
+    }\
+    ChartData {\
+      Name         "Encode_Pos_Zero"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Encode_Pos_Zero"\
+    }\
+    ChartData {\
+      Name         "Ts"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Ts"\
+    }\
+    ChartData {\
+      Name         "JD_Max"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "JD_Max"\
+    }\
+    ChartData {\
+      Name         "Encode_Sp_Max"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Encode_Sp_Max"\
+    }\
+    ChartData {\
+      Name         "cur_i"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "cur_i"\
+    }\
+    ChartData {\
+      Name         "Temp_Down_Limit"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Temp_Down_Limit"\
+    }\
+    ChartData {\
+      Name         "In_State"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "In_State"\
+    }\
+    ChartData {\
+      Name         "Enc_i"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Enc_i"\
+    }\
+    ChartData {\
+      Name         "can1_i"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "can1_i"\
+    }\
+    ChartData {\
+      Name         "GXDY_i"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "GXDY_i"\
+    }\
+    ChartData {\
+      Name         "Cur_GZ_Limit"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Cur_GZ_Limit"\
+    }\
+    ChartData {\
+      Name         "Encode_Pos0"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Encode_Pos0"\
+    }\
+    ChartData {\
+      Name         "Showing_Angle0"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Showing_Angle0"\
+    }\
+    ChartData {\
+      Name         "Showing_Angle_Last"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Showing_Angle_Last"\
+    }\
+    ChartData {\
+      Name         "Showing_T_Last"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Showing_T_Last"\
+    }\
+    ChartData {\
+      Name         "Average_En"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Average_En"\
+    }\
+    ChartData {\
+      Name         "XiaoDaShen"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "XiaoDaShen"\
+    }\
+    ChartData {\
+      Name         "Cur_GZ_Limit_Down"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Cur_GZ_Limit_Down"\
+    }\
+    ChartData {\
+      Name         "Cur_Limit_Down"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Cur_Limit_Down"\
+    }\
+    ChartData {\
+      Name         "Runing_stable"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Runing_stable"\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i3"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i4"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i5"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i6"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i7"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i8"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i9"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
