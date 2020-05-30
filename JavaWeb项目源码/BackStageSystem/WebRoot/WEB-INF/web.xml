@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>AppControlServlet</servlet-name>
+		<servlet-class>com.itman.backstagesystem.servlet.AppControlServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AppControlServlet</servlet-name>
+		<url-pattern>/servlet/AppControlServlet</url-pattern>
+	</servlet-mapping>
+
+
+
+	<context-param>
+		<param-name>socketPort</param-name>
+		<param-value>10086</param-value>
+	</context-param>
+
+	<listener>
+		<description>WifiServerSocket 服务随 web 启动而启动</description>
+		<listener-class>com.itman.backstagesystem.service.WifiServerSocketListener</listener-class>
+	</listener>
+
+	<listener>
+		<description>AppServerSocket 服务随 web 启动而启动</description>
+		<listener-class>com.itman.backstagesystem.service.AppServerSocketListener</listener-class>
+	</listener>
+
+</web-app>
